@@ -18174,7 +18174,7 @@ void main() {
         }
         getScroll() {
             return this.docScroll = window.pageYOffset || document.documentElement.scrollTop,
-            this.docScroll
+            this.docScroll,
             console.log(this.docScroll);
         }
         initEvents() {
