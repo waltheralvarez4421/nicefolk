@@ -21893,7 +21893,7 @@ varying vec2 vUv;
             window.addEventListener("resize", this.resize.bind(this))
         }
         render() {
-            this.time += .5,
+            this.time += .05,
             this.scroll.render(),
             this.currentScroll = this.scroll.scrollToRender,
             this.setImgPosition(),
