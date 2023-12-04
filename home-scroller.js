@@ -18167,7 +18167,8 @@ void main() {
         }
         style() {
             this.DOM.main.style.position = "relative",
-            this.DOM.main.style.width = this.DOM.main.style.height = "400vh",
+            this.DOM.main.style.width = "100%",
+            this.DOM.main.style.height = "400vh",
             this.DOM.main.style.top = this.DOM.main.style.left = 0,
             this.DOM.main.style.overflow = "visible"
         }
