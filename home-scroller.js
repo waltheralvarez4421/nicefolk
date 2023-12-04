@@ -21808,7 +21808,7 @@ varying vec2 vUv;
         }
         setImgPosition() {
             this.imagesStore.forEach(e=>{
-                e.mesh.position.y = this.currentScroll,
+                e.mesh.position.y = this.currentScroll - e.top + this.height / 2 - e.height / 2,
                 e.mesh.position.x = e.left - this.width / 2 + e.width / 2
             }
             )
