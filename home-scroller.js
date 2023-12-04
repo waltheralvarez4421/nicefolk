@@ -18166,10 +18166,10 @@ void main() {
             this.shouldRender = !0
         }
         style() {
-            this.DOM.main.style.position = "fixed",
-            this.DOM.main.style.width = this.DOM.main.style.height = "100%",
+            this.DOM.main.style.position = "relative",
+            this.DOM.main.style.width = this.DOM.main.style.height = "400vh",
             this.DOM.main.style.top = this.DOM.main.style.left = 0,
-            this.DOM.main.style.overflow = "hidden"
+            this.DOM.main.style.overflow = "visible"
         }
         getScroll() {
             return this.docScroll = window.pageYOffset || document.documentElement.scrollTop,
