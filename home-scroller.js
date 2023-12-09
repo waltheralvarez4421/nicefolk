@@ -18189,7 +18189,7 @@ void main() {
             document.querySelector(".services-display-section").style.height = test;
         }
         setPosition() {
-            (Math.round(this.scrollToRender) !== Math.round(this.current) || this.scrollToRender < 10) && (this.DOM.scrollable.style.transform = `translate3d(0,${(-1 * this.scrollToRender)}px,0)`)
+            (Math.round(this.scrollToRender) !== Math.round(this.current) || this.scrollToRender < 10) && (this.DOM.scrollable.style.transform = `translate3d(0,${(-1 * this.scrollToRender)/(this.scrollToRender)}px,0)`)
         }
         render() {
             this.speed = Math.min(Math.abs(this.current - this.scrollToRender), 200) / 200,
