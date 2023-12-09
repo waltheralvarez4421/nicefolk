@@ -18174,8 +18174,7 @@ void main() {
         }
         getScroll() {
             return this.docScroll = window.pageYOffset || document.documentElement.scrollTop,
-            this.docScroll,
-            console.log(this.docScroll);
+            this.docScroll
         }
         initEvents() {
             window.onbeforeunload = function() {
