@@ -21821,9 +21821,6 @@ varying vec2 vUv;
                 uniforms: {
                     uTimes: {
                         value: 0
-                    },
-                    bgTexture: {
-                        value: new Cx().load("https://uploads-ssl.webflow.com/630f0b0ef70fe467ea5eb4e8/631db3647a1cf6ff5bf045ee_beautiful-abstract-white-grey-water-color-background-small.jpg")
                     }
                 }
             }),
