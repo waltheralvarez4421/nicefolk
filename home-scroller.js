@@ -18185,10 +18185,11 @@ void main() {
             window.addEventListener("scroll", this.getScroll.bind(this))
         }
         setSize() {
-            document.body.style.height = `${this.DOM.scrollable.scrollHeight}px`
+            var test = `${this.DOM.scrollable.scrollHeight}px`;
+            document.querySelector(".services-display-section").style.height = test;
         }
         setPosition() {
-            (Math.round(this.scrollToRender) !== Math.round(this.current) || this.scrollToRender < 10) && (this.DOM.scrollable.style.transform = `translate3d(0,${-1 * this.scrollToRender}px,0)`)
+            (Math.round(this.scrollToRender) !== Math.round(this.current) || this.scrollToRender < 10) && (this.DOM.scrollable.style.transform = `translate3d(0,${(-1 * this.scrollToRender)/(this.scrollToRender)}px,0)`)
         }
         render() {
             this.speed = Math.min(Math.abs(this.current - this.scrollToRender), 200) / 200,
@@ -21825,8 +21826,7 @@ varying vec2 vUv;
                 }
             }),
             this.bgMesh = new Bn(this.bgGeometry,this.bgMaterial),
-            this.bgMesh.position.z = -20,
-            this.scene.add(this.bgMesh)
+            this.bgMesh.position.z = -20
         }
         mouseMovement() {
             window.addEventListener("mousemove", e=>{
@@ -22740,63 +22740,6 @@ varying vec2 vUv;
         $(".intro-trigger").click()
     }
     const Oy = document.querySelector(".intro-button");
-    function Ny() {
-        Oy.addEventListener("click", ()=>{
-            const s = Ct.timeline();
-            s.to(".intro-text-one-abs .char", {
-                y: "-120%",
-                stagger: {
-                    each: .035
-                },
-                duration: 1,
-                ease: hr.easeOut
-            }),
-            s.to(".intro-text-two-abs .char", {
-                y: "-120%",
-                stagger: {
-                    each: .035
-                },
-                duration: 1.2,
-                ease: hr.easeOut
-            }, .25),
-            s.to(".borderline-intro", {
-                x: "100%",
-                duration: 1.1,
-                ease: xr.create("custom", Fy)
-            }, .4),
-            s.fromTo(".caption-intro", {
-                opacity: "100%",
-                y: "0%"
-            }, {
-                opacity: "0%",
-                y: "100%",
-                duration: .9,
-                ease: Ii.easeOut
-            }, .6),
-            s.fromTo(".image-parent.intro-logo", {
-                opacity: "100%",
-                y: 0
-            }, {
-                opacity: "0%",
-                y: 100,
-                duration: .9,
-                ease: Ii.easeOut
-            }, .6),
-            s.fromTo(".intro-button", {
-                opacity: "100%",
-                y: "0%"
-            }, {
-                opacity: "0%",
-                y: "100%",
-                duration: 1,
-                ease: "Sine.easeOut"
-            }, .85),
-            s.add(function() {
-                zy()
-            }, 1.3)
-        }
-        )
-    }
     const Uy = "M0,0 C0,0 0.05953,0.01446 0.08479,0.03162 0.10885,0.04796 0.12587,0.07005 0.14178,0.09628 0.15844,0.12375 0.16576,0.14707 0.17493,0.18024 0.19901,0.26736 0.20507,0.32213 0.22878,0.41107 0.24114,0.45741 0.24934,0.4852 0.26774,0.52828 0.28674,0.57279 0.30074,0.60138 0.32707,0.64127 0.35324,0.68091 0.37341,0.7064 0.40722,0.73958 0.4456,0.77724 0.4741,0.80016 0.51935,0.82993 0.56705,0.86132 0.60025,0.87841 0.65326,0.90146 0.71339,0.9276 0.75191,0.94064 0.81567,0.95876 0.88559,0.97863 1,1 1,1 ";
     new ms(".intro-text-one, .intro-text-one-abs, .intro-text-two, .intro-text-two-abs",{
         types: "words, chars, line",
@@ -22806,83 +22749,11 @@ varying vec2 vUv;
         const s = Ct.timeline({
             delay: .5
         });
-        s.fromTo(".intro-text-one .char", {
-            y: "130%"
-        }, {
-            y: "-130%",
-            duration: 1.25,
-            stagger: {
-                each: .04
-            },
-            ease: hr.easeOut
-        }),
         s.to(".page-wrapper", {
             opacity: 1,
             duration: .2,
             ease: Ii.easeOut
-        }, 0),
-        s.fromTo(".intro-text-one-abs .char", {
-            y: "130%"
-        }, {
-            y: 0,
-            duration: 1.25,
-            stagger: {
-                each: .04
-            },
-            ease: hr.easeOut
-        }, .3),
-        s.fromTo(".intro-text-two .char", {
-            y: "130%"
-        }, {
-            y: "-130%",
-            duration: 1.25,
-            stagger: {
-                each: .05
-            },
-            ease: hr.easeOut
-        }, .45),
-        s.fromTo(".intro-text-two-abs .char", {
-            y: 130
-        }, {
-            y: 0,
-            duration: 1,
-            stagger: {
-                each: .05
-            },
-            ease: hr.easeOut
-        }, .85),
-        s.from(".borderline-intro", {
-            width: "0%",
-            duration: 2,
-            ease: xr.create("custom", Uy)
-        }, 1.35),
-        s.fromTo(".caption-intro", {
-            opacity: "0%",
-            y: "100%"
-        }, {
-            opacity: "100%",
-            y: "0%",
-            duration: 1.25,
-            ease: Ii.easeOut
-        }, 2.7),
-        s.fromTo(".image-parent.intro-logo", {
-            opacity: "0%",
-            y: 50
-        }, {
-            opacity: "100%",
-            y: 0,
-            duration: 1.25,
-            ease: Ii.easeOut
-        }, 2.9),
-        s.fromTo(".intro-button", {
-            opacity: "0%",
-            y: "100%"
-        }, {
-            opacity: "100%",
-            y: "0%",
-            duration: 1.25,
-            ease: Ii.easeOut
-        }, 2.9)
+        }, 0)
     }
     function pd(s, e) {
         for (var t = 0; t < e.length; t++) {
@@ -24718,89 +24589,8 @@ varying vec2 vUv;
       , i1 = Ct.utils.toArray(".p__trigger-3 .line")
       , r1 = Ct.utils.toArray(".p__trigger-4 .line")
       , s1 = Ct.utils.toArray(".p__trigger-5 .line");
-    function o1() {
-        const s = 1.65
-          , e = hr.easeOut;
-        Ct.timeline({
-            scrollTrigger: {
-                trigger: ".paragraph__wrapper",
-                start: "top center",
-                end: "bottom top"
-            }
-        }).from(t1, {
-            y: 35,
-            opacity: 0,
-            stagger: {
-                each: .2
-            },
-            ease: e,
-            duration: s
-        }),
-        Ct.timeline({
-            scrollTrigger: {
-                trigger: ".grid__conten-heading-right.bottom",
-                start: "top center",
-                end: "bottom top"
-            }
-        }).from(n1, {
-            y: 35,
-            opacity: 0,
-            stagger: {
-                each: .2
-            },
-            ease: e,
-            duration: s
-        }),
-        Ct.timeline({
-            scrollTrigger: {
-                trigger: ".grid__content-parent-right.third-section",
-                start: "top center",
-                end: "bottom top"
-            }
-        }).from(i1, {
-            y: 35,
-            opacity: 0,
-            stagger: {
-                each: .2
-            },
-            ease: e,
-            duration: s
-        }),
-        Ct.timeline({
-            scrollTrigger: {
-                trigger: ".grid__content-parent-right.fifth-section",
-                start: "top center",
-                end: "bottom top"
-            }
-        }).from(r1, {
-            y: 35,
-            opacity: 0,
-            stagger: {
-                each: .2
-            },
-            ease: e,
-            duration: s
-        }),
-        Ct.timeline({
-            scrollTrigger: {
-                trigger: ".grid__content-parent-last.last-section",
-                start: "top center",
-                end: "bottom top"
-            }
-        }).from(s1, {
-            y: 35,
-            opacity: 0,
-            stagger: {
-                each: .2
-            },
-            ease: e,
-            duration: s
-        })
-    }
     new Zv({
         dom: document.getElementById("webgl-canvas")
     }),
-    ky(),
-    Ny(),
-    o1()
+    ky()
 });
